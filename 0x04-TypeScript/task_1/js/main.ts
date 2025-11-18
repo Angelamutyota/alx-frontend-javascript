@@ -58,9 +58,7 @@ interface printTeacherFunction {
 }
 
 function printTeacher(firstName: string, lastName: string): string {
-  const parts = { firstName, lastName };
-  const { firstName: f, lastName: l } = parts;
-  return `${f}. ${l}`;
+  return `${firstName}. ${lastName}`;
 }
 
 // Example
