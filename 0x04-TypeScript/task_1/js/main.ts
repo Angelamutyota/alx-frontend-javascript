@@ -4,18 +4,17 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  // allow arbitrary extra props (boolean | string | number | undefined)
-  [key: string]: string | number | boolean | undefined;
+  [key: string]: any;
 }
 
 // Examples
-
 const teacher1: Teacher = {
   firstName: 'Jane',
   lastName: 'Doe',
   fullTimeEmployee: true,
   yearsOfExperience: 5,
   location: 'Nairobi',
+  speciality: 'Mathematics', 
 };
 
 const teacher2: Teacher = {
@@ -23,11 +22,10 @@ const teacher2: Teacher = {
   lastName: 'Smith',
   fullTimeEmployee: false,
   location: 'London',
-  // extra property allowed thanks to index signature
-  contract: true,
+  contract: true, 
+  rating: 4.7,
 };
 
-// The example from the task
 const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
@@ -36,9 +34,8 @@ const teacher3: Teacher = {
   contract: false,
 };
 
-console.log('teacher1:', teacher1);
-console.log('teacher2:', teacher2);
-console.log('teacher3:', teacher3);
+console.log(teacher1);
+console.log(teacher2);
+console.log(teacher3);
 
-// Trying to reassign readonly properties will raise a TS error (uncomment to see the error):
-// teacher1.firstName = 'Alice'; // Error: Cannot assign to 'firstName' because it is a read-only property.
+
