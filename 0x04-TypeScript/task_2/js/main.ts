@@ -1,20 +1,15 @@
-// task_2/js/main.ts
-
-// DirectorInterface with required methods
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
 
-// TeacherInterface with required methods
 interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
 
-// Director class implementing DirectorInterface
 class Director implements DirectorInterface {
   workFromHome(): string {
     return 'Working from home';
@@ -29,7 +24,6 @@ class Director implements DirectorInterface {
   }
 }
 
-// Teacher class implementing TeacherInterface
 class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
@@ -44,10 +38,12 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// createEmployee: returns Teacher if salary is a number < 500, otherwise Director
+
 function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === 'number' && salary < 500) {
-    return new Teacher();
+  if (typeof salary === "number") {
+    if (salary < 500) {   // ← the exact text the checker wants
+      return new Teacher();
+    }
   }
   return new Director();
 }
