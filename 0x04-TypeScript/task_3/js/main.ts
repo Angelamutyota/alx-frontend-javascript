@@ -12,12 +12,7 @@ const row: RowElement = {
 // Insert the row and get an id
 const newRowID: RowID = CRUD.insertRow(row);
 
-// Create an updated row with age
-const updatedRow: RowElement = {
-  firstName: 'Guillaume',
-  lastName: 'Salva',
-  age: 23,
-};
+const updatedRow: RowElement = { ...row, age: 23 };
 
 // Update and delete
 CRUD.updateRow(newRowID, updatedRow);
