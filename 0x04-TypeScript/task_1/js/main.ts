@@ -64,3 +64,40 @@ function printTeacher(firstName: string, lastName: string): string {
 
 // Example
 console.log(printTeacher("John", "Doe")); 
+
+
+interface StudentClassInterface {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Interface that describes the constructor signature
+interface StudentClassConstructor {
+  new(firstName: string, lastName: string): StudentClassInterface;
+}
+
+// Class implementation
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage
+const student: StudentClassInterface = new StudentClass('Alice', 'Wonders');
+console.log(student.displayName()); // Alice
+console.log(student.workOnHomework()); // Currently working
