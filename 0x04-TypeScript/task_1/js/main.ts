@@ -79,7 +79,7 @@ interface StudentClassConstructor {
 }
 
 // Class implementation
-class StudentClass  {
+class StudentClass {
   firstName: string;
   lastName: string;
 
